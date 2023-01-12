@@ -16,16 +16,20 @@ public class FileReader {
             this.fileName = fileName;
         }
 
-
-
-  public Position getTopPosition(String firstline){
-    char x1 =  firstline.charAt(0);
-    char y1 = firstline.charAt(2);
+  public Position extractPosition(String line){
+    char x1 =  line.charAt(0);
+    char y1 = line.charAt(2);
 
     String x = x1 + "";
     String y = y1 + "";
+    String o = "";
+    if(line.length() == 5){
+      char o1 = line.charAt(4);
+      o = o1 + "";
+    }
+      
 
-    return new Position(Integer.parseInt(x),Integer.parseInt(y),"");
+    return new Position(Integer.parseInt(x),Integer.parseInt(y),o);
   }
 
   public String getFirstLine() {
@@ -40,18 +44,31 @@ public class FileReader {
   }
 
 
+  public void read() {
+    String position = "";
+    String path;
+
+    Mower m = new Mower();
 
 
-public void read() {
 
-      // File myObj = new File(this.fileName);
-      // Scanner myReader = new Scanner(myObj);
+    while (scanner.hasNextLine()) {
+      position = scanner.nextLine();
+      path = scanner.nextLine();
 
-      while (scanner.hasNextLine()) {
-        String data = scanner.nextLine();
-        System.out.println(data);
-      }
-      scanner.close();
+      m.setCp(extractPosition(position));
 
+      Position res = m.move(path);
+      System.out.println(res.toString());
+
+      // System.out.println("position: " + position);
+      // System.out.println("path: " + path);
+    }
+    scanner.close();
   }
+
+  boolean isEven(int x) {
+    return x % 2 == 0;
+  }
+
 }
