@@ -18,7 +18,7 @@ public class Mower {
                     break;
               }     
         }
-        if(cp.getX() > topPosition.getX() || cp.getY() > topPosition.getY()){
+        if(cp.getX() > topPosition.getX() || cp.getY() > topPosition.getY() || cp.getX() < 0 || cp.getY() < 0){
             this.cp = resetPosition;
         }
         return this.cp;
