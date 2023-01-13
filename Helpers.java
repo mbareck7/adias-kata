@@ -1,5 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Scanner;
 
 public class Helpers {
@@ -18,7 +21,6 @@ public class Helpers {
         return new Position(Integer.parseInt(x),Integer.parseInt(y),o);
       }
 
-
       public static Scanner getScanner(String filename) {
         File file;
         Scanner scanner = null;
@@ -30,5 +32,27 @@ public class Helpers {
           e.printStackTrace();
         }
         return scanner;
-      } 
+      }
+      
+      public static void writeResult(String line) {
+        //   File outputs =  new File("outputs.txt");
+          FileWriter fw;
+        try {
+            fw = new FileWriter("outputs.txt",true);
+            fw.write(line +"\n");
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+      }
+
+
+      public static void deleteFile(String filename) {
+        File file = new File(filename);
+        try {
+            Files.deleteIfExists(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+      }
 }
