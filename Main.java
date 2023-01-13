@@ -20,12 +20,11 @@ public class Main{
         //delete outpouts.txt if exists
         Helpers.deleteFile("outputs.txt");
 
-
         while (scanner.hasNextLine()) {
           position = scanner.nextLine();
           path = scanner.nextLine();
           m.setCp(Helpers.extractPosition(position));
-          Position res = m.move(path);
+          Position res = m.move(path,topPostion);
           Helpers.writeResult(res.toString());
           System.out.println(res.toString());
         }

@@ -2,7 +2,9 @@ public class Mower {
     Position cp; // Current position
 
 
-    public  Position move(String path){
+    public  Position move(String path, Position topPosition){
+
+        Position resetPosition = this.cp;
 
         for (char O: path.toCharArray()) {
             
@@ -21,8 +23,11 @@ public class Mower {
               }
               
         }
-          
-        return this.cp;// code block
+        
+        if(cp.getX() > topPosition.getX() || cp.getY() > topPosition.getY()){
+            this.cp = resetPosition;
+        }
+        return this.cp;
     }
 
 
