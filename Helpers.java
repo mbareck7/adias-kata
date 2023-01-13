@@ -14,6 +14,7 @@ public class Helpers {
         String x = x1 + "";
         String y = y1 + "";
         String o = "";
+
         if(line.length() == 5){
           char o1 = line.charAt(4);
           o = o1 + "";
@@ -24,8 +25,8 @@ public class Helpers {
       public static Scanner getScanner(String filename) {
         File file;
         Scanner scanner = null;
-        
         file = new File(filename);
+        
         try {
           scanner = new Scanner(file);
         } catch (FileNotFoundException e) {
@@ -35,7 +36,6 @@ public class Helpers {
       }
       
       public static void writeResult(String line) {
-        //   File outputs =  new File("outputs.txt");
           FileWriter fw;
         try {
             fw = new FileWriter("outputs.txt",true);
@@ -45,7 +45,6 @@ public class Helpers {
             e.printStackTrace();
         }
       }
-
 
       public static void deleteFile(String filename) {
         File file = new File(filename);

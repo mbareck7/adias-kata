@@ -1,24 +1,14 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.util.Scanner;
 
 public class Main{
-
     public static void main(String[] args) {
 
         Scanner scanner = Helpers.getScanner("inputs.txt");
+        Helpers.deleteFile("outputs.txt");
         Position topPostion = Helpers.extractPosition(scanner.nextLine());
-
         String position = "";
         String path;
         Mower m = new Mower();
-
-
-
-        //delete outpouts.txt if exists
-        Helpers.deleteFile("outputs.txt");
 
         while (scanner.hasNextLine()) {
           position = scanner.nextLine();

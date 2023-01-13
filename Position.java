@@ -36,24 +36,8 @@ public class Position {
         this.o = o;
     }
 
-    public Position x(int x) {
-        setX(x);
-        return this;
-    }
-
-    public Position y(int y) {
-        setY(y);
-        return this;
-    }
-
-    public Position o(String o) {
-        setO(o);
-        return this;
-    }
-
     @Override
     public String toString() {
         return x + " " + y + " " + o ;
     }
-    
 }

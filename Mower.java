@@ -1,13 +1,9 @@
 public class Mower {
     Position cp; // Current position
-
-
+    
     public  Position move(String path, Position topPosition){
-
         Position resetPosition = this.cp;
-
         for (char O: path.toCharArray()) {
-            
             switch(O + "") {
                 case "D":
                   turnD();
@@ -20,23 +16,20 @@ public class Mower {
                   break;
                 default:
                     break;
-              }
-              
+              }     
         }
-        
         if(cp.getX() > topPosition.getX() || cp.getY() > topPosition.getY()){
             this.cp = resetPosition;
         }
         return this.cp;
     }
 
-
     public void turnD(){
-        switch (cp.getO()) {// code block
+        switch (cp.getO()) {
             case "N":
                 cp.setO("E");
                 break;
-            case "E":// code block
+            case "E":
                 cp.setO("S");
                 break;
             case "S":
@@ -49,7 +42,6 @@ public class Mower {
                 break;
         }
     }
-
 
     public void turnG(){
         switch (cp.getO()) {
@@ -90,10 +82,7 @@ public class Mower {
         return this.cp;
     }
 
-
-
-    public Mower() {
-    }
+    public Mower() {}
 
     public Mower(Position cp) {
         this.cp = cp;
@@ -105,10 +94,5 @@ public class Mower {
 
     public void setCp(Position cp) {
         this.cp = cp;
-    }
-
-    public Mower cp(Position cp) {
-        setCp(cp);
-        return this;
     }
 }
